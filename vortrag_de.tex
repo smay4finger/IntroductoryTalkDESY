@@ -9,13 +9,17 @@
 \usepackage{microtype}
 \usepackage{tikz}
 \usetikzlibrary{positioning,calc}
+\usepackage[absolute,overlay]{textpos}
+
+%%% enable grid for finding text positions
+%\usepackage[texcoord,grid,gridunit=mm,gridcolor=red!10,subgridcolor=green!10]{eso-pic}
 
 \graphicspath{{images/}{bilder/}}
 
-\title[Welcome at DESY]{Welcome at DESY!}
-\author[Joscha Knolle]{\textbf{Joscha Knolle}}
-\institute{PhD Student (particle physics)\\DESY CMS group\\[\baselineskip]Introductory lecture for Viborg Katedralskole}
-\date[04 Dec 2019]{December 4th, 2019}
+\title[Willkommen am DESY]{Willkommen am DESY!}
+\author[Stefan May]{\textbf{Stefan May}}
+\institute{Softwareentwickler und Strahlenschutzbeauftragter\\Gruppe MPS (Maschine Personensicherheit)\\[\baselineskip]Einführungsvortrag}
+\date[März 2020]{März 2020}
 
 \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 \unitlength=0.01\paperwidth
@@ -24,25 +28,26 @@
 
 \maketitle
 
+\section{Was ist DESY?}
 
 \begin{frame}
-\frametitle{What is DESY?}
+\frametitle{Was ist DESY?}
 \vspace*{-2\baselineskip}
 \begin{columns}[c]
 \column{0.472\textwidth}\begin{itemize}
     \item \textbf{D}eutsches \textbf{E}lektronen-\textbf{Sy}nchrotron
-    \item national research centre
-    \item member of Helmholtz Association
-    \item established on December 18th, 1959
-    \item two locations:
+    \item Nationales Forschungszentrum
+    \item Mitglied der Helmholtz-Gemeinschaft
+    \item gegründet am 18. Dezember 1959
+    \item Standorte in
     \begin{itemize}
         \item Hamburg
         \item Zeuthen (Brandenburg)
     \end{itemize}
-    \item budget: 230 million euro (2016)
+    \item Budget: 230 Million Euro (2016)
     \begin{itemize}
-        \item 90\,\% federal government
-        \item 10\,\% state governments of Hamburg \& Brandenburg
+        \item 90\,\% Bundesministerium für Bildung und Forschung (BmBF)
+        \item 10\,\% Bundesländer Hamburg und Brandenburg
     \end{itemize}
 \end{itemize}
 \column{0.472\textwidth}
@@ -53,17 +58,17 @@
 
 
 \begin{frame}
-\frametitle{Helmholtz Association}
-\framesubtitle{Helmholtz Association of German Research Centres}
+\frametitle{Helmholtz-Gemeinschaft}
+\framesubtitle{Helmholtz-Gemeinschaft Deutscher Forschungszentren}
 \vspace*{-1.5\baselineskip}
 \begin{itemize}
-    \item Germany's largest scientific organisation
+    \item größte Wissenschaftsorganisation Deutschlands
     \begin{itemize}
-        \item more than 39,000 employees in 19 research centres
-        \item budget: 4.5 billion euro (2018)
+        \item mehr als 39.0000 Mitarbeiter*innen in 19 Forschungszentren
+        \item Budget: 4,5 Milliarden Euro, davon 30\% Drittmittel (2018)
     \end{itemize}
-    \item long-term basic research to solve the major challenges facing society, science and the economy
-    \item research fields:
+    \item langfristige Grundlagenforschung zur Lösung froßer und drängender Fragen von Gesellschaft, Wissenschaft und Wirtschaft
+    \item Forschungsbereiche:
 \end{itemize}
 
 \begin{tikzpicture}
@@ -73,35 +78,35 @@
     \node [inner sep=0pt] at (0,-0.2\textwidth) {\includegraphics[width=0.3\textwidth]{fb-luftfahrtraumfahrtverkehr}};
     \node [inner sep=0pt] at (0.35\textwidth,-0.2\textwidth) {\includegraphics[width=0.3\textwidth]{fb-materie}};
     \node [inner sep=0pt] at (0.7\textwidth,-0.2\textwidth) {\includegraphics[width=0.3\textwidth]{fb-schluesseltechnologien}};
-    \node [fill=desyorange] at (0,0) {\bfseries energy\vphantom{t}};
-    \node [fill=desyorange] at (0.35\textwidth,0) {\bfseries earth \& environment};
-    \node [fill=desyorange] at (0.7\textwidth,0) {\bfseries health};
-    \node [fill=desyorange] at (0,-0.2\textwidth) {\bfseries\parbox{0.16\textwidth}{\centering aeronautics, space \& transport}};
-    \node [fill=desyorange] at (0.35\textwidth,-0.2\textwidth) {\bfseries matter};
-    \node [fill=desyorange] at (0.7\textwidth,-0.2\textwidth) {\bfseries key technologies};
+    \node [fill=desyorange] at (0,0) {\bfseries Energie\vphantom{t}};
+    \node [fill=desyorange] at (0.35\textwidth,0) {\bfseries Erde \& Umwelt};
+    \node [fill=desyorange] at (0.7\textwidth,0) {\bfseries Gesundheit};
+    \node [fill=desyorange] at (0,-0.2\textwidth) {\bfseries\parbox{0.16\textwidth}{\centering Luftfahrt, Raumfahrt, Verkehr}};
+    \node [fill=desyorange] at (0.35\textwidth,-0.2\textwidth) {\bfseries Materie};
+    \node [fill=desyorange] at (0.7\textwidth,-0.2\textwidth) {\bfseries\parbox{0.19\textwidth}{\centering Schlüssel-technologien}};
 \end{tikzpicture}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{People at DESY}
+\frametitle{Menschen am DESY}
 \vspace*{-2\baselineskip}
 \begin{columns}[c]
 \column{0.472\textwidth}\begin{itemize}
-    \item approximately 2300 employees
+    \item etwa 2300 Mitarbeiter
     \begin{itemize}
-        \item[$\approx\!$] 650 scientists
-        \item[$\approx\!$] 700 students, doctoral candidates \& postdocs
-        \item[$\approx\!$] 100 young people in commercial and technical training
-        \item technical \& administrative staff, \dots
+        \item[$\approx\!$] 650 Wissenschaftler
+        \item[$\approx\!$] 700 Studenten, Doktoranden, Postdocs
+        \item[$\approx\!$] 100 Auszubildende in technischen und kaufmännischen Berufen
+        \item Technik, Verwaltung, \dots
     \end{itemize}
-    \item more than 3000 guest scientists from more than 40 countries each year
-    \item DESY cooperates closely with many universities and other research centres
-    \item DESY operates two student labs to give young people a better understanding of science
+    \item mehr als 3000 Gastwissenschaftler aus 40 Nationen pro Jahr
+    \item DESY arbeitet eng mit vielen Hochschulen und anderen Forschungszentren zusammen
+    \item DESY betreibt zwei Schülerlabore, um Schüler*innen Wissenschaft näherzubringen
 \end{itemize}
 \column{0.472\textwidth}
     \includegraphics[width=\textwidth]{menschen3} \\[1ex]
-    \includegraphics[width=\textwidth]{menschen2} \vspace*{-1cm}
+    \includegraphics[width=\textwidth]{menschen1} \vspace*{-1cm}
 \end{columns}
 \end{frame}
 
@@ -130,22 +135,25 @@
 \vspace*{-13pt}
 \end{frame}
 
+\section{Forschung am DESY}
 
 \begin{frame}
-\frametitle{Research at DESY}
+\frametitle{Forschung am DESY}
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
     \node[inner sep=0pt] at (0,0) {\includegraphics[width=0.9\textwidth]{forschungsgebiete}};
-    \node[desyblue] (center) at (1cm,0) {\Large\textbf{Particle Physics}};
-    \node[desyblue,above=0.8cm of center] {\Large\textbf{Accelerators}};
-    \node[desyblue,below=0.8cm of center] {\Large\textbf{Photon Science}};
+    \node[desyblue] (center) at (1cm,0) {\Large\textbf{Beschleuniger}};
+    \node[desyblue,above=0.8cm of center] {\Large\textbf{Teilchenphysik}};
+    \node[desyblue,below=0.8cm of center] {\Large\textbf{Forschung mit Photonen}};
 \end{tikzpicture}
 \vspace*{-11pt}
 \end{frame}
 
 
+\subsection{Beschleuniger}
+
 \begin{frame}
-\frametitle{Accelerators}
+\frametitle{Beschleuniger}
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
     \node[inner sep=0pt] at (0,0) {\includegraphics[width=0.9\textwidth]{forschungsgebiete-beschleuniger}};
@@ -159,57 +167,57 @@
 
 
 \begin{frame}
-\frametitle{Electric and magnetic fields}
+\frametitle{Elektrische und magnetische Felder}
 \vspace*{-2\baselineskip}
 \begin{columns}
-\column{0.472\textwidth}\textbf{Electric fields} \\[1em]
+\column{0.472\textwidth}\textbf{Elektrische Felder} \\[1em]
 \begin{tikzpicture}
     \node [inner sep=0pt] {\includegraphics[width=\textwidth]{beschleuniger-efeld}};
-    \node [inner sep=2pt,fill=white] at (0cm,2.5cm) {~metal plates~};
-    \node [inner sep=2pt,fill=white] at (1cm,-0.8cm) {~~~single electron~~};
-    \node [inner sep=2pt,fill=white] at (0cm,-2.5cm) {~~voltage supply~~};
+    \node [inner sep=2pt,fill=white] at (0cm,2.5cm) {Metallplatten};
+    \node [inner sep=2pt,fill=white] at (1cm,-0.8cm) {einzelnes Elektron};
+    \node [inner sep=2pt,fill=white] at (0cm,-2.5cm) {Spannungsquelle};
 \end{tikzpicture}
-\column{0.472\textwidth}\textbf{Magnetic fields} \\[1ex]
+\column{0.472\textwidth}\textbf{Magnetische Felder} \\[1ex]
     \includegraphics[width=\textwidth]{beschleuniger-lorentzkraft-hufeisen} \\[1em]
     \includegraphics[width=\textwidth]{beschleuniger-lorentzkraft-spirale}
 \end{columns}
 \vspace*{1em}
 \begin{columns}
-\column{0.472\textwidth}\centering$\boldsymbol{\Rightarrow}$ \textbf{Acceleration}
-\column{0.472\textwidth}\centering$\boldsymbol{\Rightarrow}$ \textbf{Deflection}
+\column{0.472\textwidth}\centering$\boldsymbol{\Rightarrow}$ \textbf{Beschleunigung}
+\column{0.472\textwidth}\centering$\boldsymbol{\Rightarrow}$ \textbf{Ablenkung}
 \end{columns}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{What is a Particle Accelerator?}
+\frametitle{Was ist ein Teilchenbeschleuniger?}
 \vspace*{-2\baselineskip}
 \begin{columns}[c]
 \column{0.472\textwidth}\begin{itemize}
-    \item goal: particles at high energies
+    \item Ziel: hochenergetische Teilchen
     \begin{itemize}
-        \item ``higher energies allow for a study of smaller structures''
-        \item mass--energy equivalence: $E=mc^2$ (Einstein, 1905)
+        \item ``je höher die Energie, desto kleiner die untersuchte Probe''
+        \item Energie-Masse-Äquivalenz: $E=mc^2$ (Einstein, 1905)
     \end{itemize}
-    \item accelerate particles with Lorentz force: $\vec{F}=q\Big(\vec{E}+\vec{v}\times\vec{B}\Big)$
+    \item beschleunigte Teilchen mit der Lorentzkraft: $\vec{F}=q\Big(\vec{E}+\vec{v}\times\vec{B}\Big)$
     \begin{itemize}
-        \item accelerate parallel to electrical field
-        \item deviate perpendicular to magnetic field
+        \item Beschleunigung parallel zum elektrischen Feld ($\vec{E}$)
+        \item Ablenkung senkrecht zum magnetischen Feld ($\vec{B}$)
     \end{itemize}
-    \item achieved energies at HERA:
+    \item erreichte Energien bei HERA:
     \begin{itemize}
-        \item electrons with 27.5\,GeV $\approx$~99.999\,999\,98\,\% of the speed~of~light
+        \item Elektronen mit 27.5\,GeV $\approx$~99.999\,999\,98\,\% der Lichtgeschwindigkeit
     \end{itemize}
 \end{itemize}
 \column{0.472\textwidth}\centering
-    \includegraphics[width=0.8\textwidth]{beschleuniger-schema-en} \\[1em]
+    \includegraphics[width=0.8\textwidth]{beschleuniger-schema-de} \\[1em]
     \includegraphics[width=\textwidth,trim={0 0 0 0},clip]{beschleuniger-tunnel}
 \end{columns}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Accelerator: \only<1>{DESY}\only<2>{DORIS}\only<3>{PETRA}\only<4>{HERA}\only<5>{FLASH}\only<6>{European XFEL}}
+\frametitle{Beschleuniger: \only<1>{DESY}\only<2>{DORIS}\only<3>{PETRA}\only<4>{HERA}\only<5>{FLASH}\only<6>{European XFEL}}
 \only<2->{\stepcounter{framenumber}}%
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
@@ -250,9 +258,10 @@
 \end{tikzpicture}
 \end{frame}
 
+\subsection{Teilchenphysik}
 
 \begin{frame}
-\frametitle{Particle Physics}
+\frametitle{Teilchenphysik}
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
     \node[inner sep=0pt] at (0,0) {\includegraphics[width=0.9\textwidth]{forschungsgebiete-teilchenphysik}};
@@ -266,28 +275,20 @@
 
 
 \begin{frame}
-\frametitle{What is Particle Physics?}
+\frametitle{Was ist Teilchenphysik?}
 \vspace*{-\baselineskip}\normalsize
 \begin{tikzpicture}
     \node [inner sep=0pt] {\includegraphics[width=\textwidth]{teilchenphysik-materie}};
-    \node [inner sep=2pt,fill=white] (ordinary) at (-4.43cm,1.15cm) {ordinary matter~~~~};
-    \fill [white] (ordinary.south east) rectangle (-3.5cm,0.8cm);
-    \node [inner sep=2pt,fill=white] at (-0.3cm,1.72cm) {molecule};
-    \node [inner sep=2pt,fill=white] at (4.2cm,2.85cm) {atom};
-    \node [inner sep=2pt,fill=white] at (5cm,-0.99cm) {electron};
-    \node [inner sep=2pt,fill=white] at (3cm,-2.7cm) {atomic nucleus};
-    \node [inner sep=2pt,fill=white] at (-0.5cm,-0.86cm) {nucleon};
-    \node [inner sep=2pt,fill=white] at (-4.8cm,-0.75cm) {quark};
 \end{tikzpicture}
 \end{frame}
 
 
 \begin{frame}\centering
-\frametitle{Standard Model of Particle Physics}
+\frametitle{Standardmodell der Teilchenphysik}
 \vspace*{-2.5\baselineskip}
 \begin{columns}
 \column{0.87\textwidth}~\\[-\baselineskip]
-    \includegraphics[width=\textwidth]{standardmodell-en}
+    \includegraphics[width=\textwidth]{standardmodell-de}
 \column{0.074\textwidth}~\\[4cm]
     \makebox[\textwidth][r]{\includegraphics[width=2cm]{teilchenphysik-baryon}} \\[0.5cm]
     \makebox[\textwidth][r]{\includegraphics[width=1.8cm]{teilchenphysik-meson}}
@@ -298,29 +299,29 @@
 
 
 \begin{frame}
-\frametitle{Collider Experiment}
+\frametitle{Kollisions-Experiment}
 \vspace*{-2\baselineskip}
 \begin{columns}
-\column{0.151\textwidth}\textbf{Available:}
-\column{0.793\textwidth}stable particles \\
-    \qquad\textbullet~~ electrons \\
-    \qquad\textbullet~~ protons (composed of quarks)
+\column{0.151\textwidth}\textbf{Verfügbar:}
+\column{0.793\textwidth}Stabile Teilchen \\
+    \qquad\textbullet~~ Elektronen \\
+    \qquad\textbullet~~ Protonen (zusammengesetzt aus Quarks)
 \end{columns}
 \vspace*{1ex}
 \begin{columns}
-\column{0.151\textwidth}\textbf{Interesting:}
-\column{0.793\textwidth}rare particles, e.g. Higgs boson, top quark, B meson \\
-    \qquad$\Rightarrow$~~ instable, quickly decay to many light particles \\
-    \qquad$\Rightarrow$~~ very high mass, i.e. creation requires much energy
+\column{0.151\textwidth}\textbf{Gesucht:}
+\column{0.793\textwidth}seltene Teilchen, z.B. Higgs-Boson, Top-Quark, B-Meson \\
+    \qquad$\Rightarrow$~~ instabil, zerfallen schnell zu vielen leichteren Teilchen \\
+    \qquad$\Rightarrow$~~ sehr hohe Masse, d.h. viel Energie zur Erzeugung nötig
 \end{columns}
 \vspace*{1ex}
 \begin{columns}
 \column{0.151\textwidth}\textbf{Experiment:}
-\column{0.793\textwidth}1. Collide electrons or protons at high energies \\
-    \qquad$\Rightarrow$~~ possible to create heavy particles \\[1ex]
-    2. Measurement of decay products with large detectors \\
-    \qquad$\Rightarrow$~~ reconstruct heavy particles \\
-    \qquad$\Rightarrow$~~ perform statistical analysis
+\column{0.793\textwidth}1. Kollision von zwei hochenergetischen Teilchen \\
+    \qquad$\Rightarrow$~~ schwere Teilchen können erzeugt werden \\[1ex]
+    2. Messung der Zerfallsprodukte mit großen Detektoren \\
+    \qquad$\Rightarrow$~~ Rekonstruktion der schweren Teilchen \\
+    \qquad$\Rightarrow$~~ statistische Analyse
 \end{columns}
 \vspace*{1ex}
 \includegraphics[width=\textwidth]{teilchenphysik-kollision}
@@ -328,28 +329,29 @@
 
 
 \begin{frame}
-\frametitle{Example: CMS Experiment at the LHC}
+\frametitle{Beispiel: CMS Experiment at the LHC}
 \vspace*{-2.5\baselineskip}
-The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid experiment is one of the four experiments at the \textbf{L}arge \textbf{H}adron \textbf{C}ollider, the world's largest accelerator, at CERN. \\[\baselineskip]
+Das \textbf{C}ompact-\textbf{M}uon-\textbf{S}olenoid-Experiment ist eines von vier Experimenten am \textbf{L}arge \textbf{H}adron \textbf{C}ollider, dem größten Teilchenbeschleuniger der Welt, am CERN. \\[\baselineskip]
 \makebox[\textwidth]{\includegraphics[width=0.99\paperwidth]{teilchenphysik-detektor}}
 \vspace*{-18pt}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Gluon Discovery at PETRA}
+\frametitle{Entdeckung des Gluons bei PETRA}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize R. Brandelik et al. (TASSO Collaboration), Evidence for planar events in e\textsuperscript{+}e\textsuperscript{--} annihilation at high energies, Physics Letters 86B, 243--249 (1979)}
 \vspace*{\baselineskip}
 \begin{columns}
 \column{0.2\textwidth}
-    \textbf{only quarks} \\
+    \textbf{nur Quarks} \\
     \includegraphics[width=\textwidth,page=1]{gluon-feynman} \\[1ex]
-    \textbf{with gluons} \\
+    \textbf{mit Gluonen} \\
     \includegraphics[width=\textwidth,page=2]{gluon-feynman} \\
     \includegraphics[width=\textwidth,page=3]{gluon-feynman} \\
     \includegraphics[width=\textwidth,page=4]{gluon-feynman}
-\column{0.744\textwidth}PETRA experiments observed events with three jets, which could not be explained with a quark-only theory $\Rightarrow$ the gluon was discovered \\[1ex]
+\column{0.744\textwidth}Die Experimente bei PETRA beobachteten Ereignisse mit drei Jets. Diese konnten nicht allein mit Quarks erklärt werden \\
+$\Rightarrow$ die Gluonen waren entdeckt \\[1ex]
     \centering\includegraphics[width=0.7\textwidth]{gluon-threejets}
 \end{columns}
 \vspace*{-18pt}
@@ -357,7 +359,7 @@ The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid experiment is one of the fo
 
 
 \begin{frame}
-\frametitle{Proton Structure at HERA}
+\frametitle{Struktur des Protons bei HERA}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize H. Abramowicz et al. (H1 and ZEUS Collaborations), Combination of measurements of inclusive deep inelastic e\textsuperscript{$\pm$}p scattering cross sections and QCD analysis of HERA data, European Physical Journal C75 (2015) 12, 580}
 \vspace*{\baselineskip}
@@ -368,17 +370,17 @@ The \textbf{C}ompact \textbf{M}uon \textbf{S}olenoid experiment is one of the fo
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.65\textwidth}\raggedright
-    The proton consists of three ``valence'' quarks: two up quarks and one down quark.
+    Das Proton besteht aus drei ``Valenzquarks'', zwei Up- und ein Down-Quark
 \end{minipage}\vspace*{1ex}
 
-However, the quarks interact via the strong interaction constantly, such that gluons as well as other quarks and anti-quarks can be found inside the proton.
+Diese Quarks interagieren aber ständig über die starke Wechselwirkung, sodass auch Gluonen, andere Quarks und Anti-Quarks im Proton gefunden werden können.  
 
 \begin{minipage}[c]{0.35\textwidth}
     \includegraphics[width=\textwidth]{hera-proton2}
 \end{minipage}
 \hfill
 \begin{minipage}[c]{0.6\textwidth}\raggedright
-    At HERA, the composition of the proton was measured with such a high precision, that the results will be the best available for a long time.
+Bei HERA konnte die Zusammensetzung des Protons so genau ver- messen werden, dass diese Ergebnisse noch lange führend sein werden.
 \end{minipage}
 \column{0.472\textwidth}~\\[-\baselineskip]
     \includegraphics[width=\textwidth,trim={2.4cm 1.7cm 1.1cm 0.4cm},clip]{hera-pdf}
@@ -388,7 +390,7 @@ However, the quarks interact via the strong interaction constantly, such that gl
 
 
 \begin{frame}
-\frametitle{Observation of $\boldsymbol{H\rightarrow b\bar{b}}$ at the LHC}
+\frametitle{Messung von $\boldsymbol{H\rightarrow b\bar{b}}$ am LHC}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize M. Aaboud et al. (ATLAS Collaboration), Observation of $\boldsymbol{H\rightarrow b\bar{b}}$ decays and $\boldsymbol{VH}$ production with the ATLAS detector, Physics Letters B786 (2018) 59--86}
 \vspace*{\baselineskip}
@@ -400,31 +402,32 @@ However, the quarks interact via the strong interaction constantly, such that gl
     \Put(-23,15){\setlength\fboxsep{0pt}\fbox{\includegraphics[height=0.5cm]{vhbb-atlas}}}
 \column{0.472\textwidth}~\\[-\baselineskip]
     \includegraphics[width=\textwidth]{vhbb-result} \\[1ex]
-    $H\rightarrow b\bar{b}$ can only be distinguished from $Z\rightarrow b\bar{b}$ by a statistical analysis.
+    $H\rightarrow b\bar{b}$ kann nur durch statistische Auswertung von $Z\rightarrow b\bar{b}$ unterschieden werden.
 \end{columns}
 \vspace*{-3pt}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{High-Energetic Neutrinos with IceCube}
+\frametitle{Kosmische Neutrinos mit IceCube}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize M. Aartsen et al. (IceCube Collaboration), Neutrino emission from the direction of the blazar TXS 0506+056 prior to the IceCube-170922A alert, Science 361 (2018) 6398}
 \vspace*{\baselineskip}
 \begin{columns}
 \column{0.472\textwidth}\textbf{Experiment} \\[1ex]
     \includegraphics[width=\textwidth]{icecube-experiment} \\
-    Neutrino observatory with 5160 sensors built into one cubic kilometer of ice at the south pole
-\column{0.472\textwidth}\textbf{Measurement} \\[1ex]
+    Neutrino-Observatorium am Südpol, mit 5160 Sensoren in einem Eisblock von einem Kubikkilometer Größe
+\column{0.472\textwidth}\textbf{Ergebnis} \\[1ex]
     \includegraphics[width=\textwidth]{icecube-ergebnis} \\
-    first detection of neutrino with energy of 300\,TeV from blazar about 4 billion light years away from earth $\Rightarrow$ confirmed by other astrophysical observations
+    Erste Beobachtung eines hochenergetischen Neutrinos (300\,TeV) $\Rightarrow$ weitere Beobachtungen bestätigen die Quelle als Blasar in 4\,Milliarden Lichtjahren Entfernung.
 \end{columns}
 \vspace*{-8pt}
 \end{frame}
 
+\subsection{Forschung mit Photonen}
 
 \begin{frame}
-\frametitle{Photon Science}
+\frametitle{Forschung mit Photonen}
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
     \node[inner sep=0pt] at (0,0) {\includegraphics[width=0.9\textwidth]{forschungsgebiete-forschungmitphotonen}};
@@ -438,21 +441,17 @@ However, the quarks interact via the strong interaction constantly, such that gl
 
 
 \begin{frame}
-\frametitle{Accelerators as Light Sources}
+\frametitle{Beschleuniger als Lichtquellen}
 \vspace*{-2.2\baselineskip}
 \begin{columns}
 \column{0.562\textwidth}~\\[-\baselineskip]
 \makebox[\textwidth][l]{\begin{tikzpicture}
     \node [inner sep=0pt] at (0,0) {\includegraphics[width=1.4\textwidth]{photonen-erzeugung}};
-    \node [inner sep=1pt,fill=white] at (-3.3cm,1.88cm) {\footnotesize bending magnet};
-    \node [inner sep=1pt,fill=white] at (-3.5cm,-0.2cm) {\footnotesize wiggler};
-    \node [inner sep=1pt,fill=white] at (-3.4cm,-2.2cm) {\footnotesize undulator};
-    \node [inner sep=1pt,fill=white] at (-2.75cm,-3.7cm) {\footnotesize free-electron laser~~~};
 \end{tikzpicture}}
-\column{0.382\textwidth}~\\ charged particles bent on a circular track emit light
+\column{0.382\textwidth}~\\ Geladene Teilchen, die auf einer Kreisbahn abgelenkt werden, strahlen Licht ab
 \begin{itemize}
-    \item ``synchrotron radiation''
-    \item very intensive and highly focussed light
+    \item ``Synchrotron-Strahlung''
+    \item sehr intensives und stark gebündeltes Licht
 \end{itemize}
 \end{columns}
 \vspace*{-7pt}
@@ -460,7 +459,7 @@ However, the quarks interact via the strong interaction constantly, such that gl
 
 
 \begin{frame}
-\frametitle{Experiments with Light}
+\frametitle{Experimente mit Licht}
 \vspace*{-1.5\baselineskip}
 \begin{tikzpicture}
     \node [inner sep=0pt] {\includegraphics[width=\textwidth]{photonen-experiment}};
@@ -469,15 +468,15 @@ However, the quarks interact via the strong interaction constantly, such that gl
     \node [shape=circle,draw,fill=white,inner sep=2pt] at (0.8cm,2.5cm) {3};
     \node [shape=circle,draw,fill=white,inner sep=2pt] at (4.7cm,-1.7cm) {4};
     \node [inner sep=0pt] at (-3cm,-2.5cm) {\parbox{5.5cm}{\raggedright\begin{enumerate}
-        \item The electron beam emits light in magnetic structures.
-        \item The object is irradiated.
-        \item Scattered/emitted/non-absorbed light is measured.
-        \item The object's structure is \makebox[0pt][l]{reconstructed}\\ from the measured data.
+        \item Der Elektronenstrahl erzeugt Licht in magnetischen Strukturen
+        \item Die Probe wird bestrahlt
+        \item Gestreutes, emittiertes oder nicht absorbiertes Licht wird gemessen
+        \item die Struktur der Probe wird aus den gemessenen Daten rekonstruiert
     \end{enumerate}}};
     \node [inner sep=0pt] at (3.8cm,1.2cm) {\parbox{4cm}{\raggedright%
-        \textbf{Spectroscopy} measures chemical processes from emission and absorption spectra. \\[1ex]
-        \textbf{Diffraction} measures atomic structures from light bending at crystalls. \\[1ex]
-        \textbf{Imaging} recreates structures as in an ordinary microscope.
+        \textbf{Spektroskopie} bestimmt chemische Vorgänge aus Emissions- und Absorptionsspektren. \\[1ex]
+        \textbf{Streuung} bestimmt atomare Strukturen aus Lichtbeugung an Kristallen. \\[1ex]
+        \textbf{Bildgebung} stellt Strukturen wie in einem Lichtmikroskop dar.
     }};
 \end{tikzpicture}
 \vspace*{-22pt}
@@ -485,15 +484,15 @@ However, the quarks interact via the strong interaction constantly, such that gl
 
 
 \begin{frame}
-\frametitle{PETRA III \color{desyorange}\large -- most brilliant light source of its kind}
+\frametitle{PETRA III \color{desyorange}\large -- brillianteste Lichtquelle ihrer Art}
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
     \node [inner sep=0pt] {\includegraphics[width=0.78\textwidth]{photonen-petra3}};
-    \node [inner sep=3pt,fill=white] at (3cm,-3cm) {\parbox{7.6cm}{\raggedright\small%
-        electron energy: 6\,GeV \\
-        photon energy: 150\,eV\,--\,200\,keV \\
-        photon wavelength: 8\,nm\,--\,0.006\,nm \\
-        peak brilliance: 10\textsuperscript{21}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
+    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (3cm,-3cm) {\parbox{7.6cm}{\raggedright\small%
+        Energie der Elektronen: 6\,GeV \\
+        Energie der Photonen: 150\,eV\,--\,200\,keV \\
+        Wellenlänge der Photonen: 8\,nm\,--\,0.006\,nm \\
+        maximale Brillianz: 10\textsuperscript{21}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
     }};
 \end{tikzpicture}
 \vspace*{-4pt}
@@ -501,16 +500,16 @@ However, the quarks interact via the strong interaction constantly, such that gl
 
 
 \begin{frame}
-\frametitle{FLASH \color{desyorange}\large -- world's first soft X-ray free-electron laser}
+\frametitle{FLASH \color{desyorange}\large -- weltweit erster FEL für weiches Röntgenlicht}
 \vspace*{-2\baselineskip}
 \begin{tikzpicture}
     \node [inner sep=0pt] {\includegraphics[width=0.75\textwidth]{photonen-flash}};
-    \node [inner sep=3pt,fill=white] at (3.5cm,-3.7cm) {\parbox{7.3cm}{\raggedright\small%
-        electron energy: 0.35\,GeV\,--\,1.25\,GeV \\
-        photon energy: 14\,eV\,--\,310\,eV \\
-        photon wavelength: 90\,nm\,--\,4\,nm \\
-        pulse duration: 30\,fs\,--\,200\,fs \\
-        peak brilliance: 10\textsuperscript{31}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
+    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (3.5cm,-3.5cm) {\parbox{7.3cm}{\raggedright\small%
+        Energie der Elektronen: 0.35\,GeV\,--\,1.25\,GeV \\
+        Energie der Photonen: 14\,eV\,--\,310\,eV \\
+        Wellenlänge der Photonen: 90\,nm\,--\,4\,nm \\
+        Pulsdauer: 30\,fs\,--\,200\,fs \\
+        maximale Brillianz: 10\textsuperscript{31}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
     }};
 \end{tikzpicture}
 \vspace*{-22pt}
@@ -518,18 +517,18 @@ However, the quarks interact via the strong interaction constantly, such that gl
 
 
 \begin{frame}
-\frametitle{European XFEL \color{desyorange}\large -- largest X-ray laser in the world}
+\frametitle{European XFEL \color{desyorange}\large -- größter Röntgenlaser der Welt}
 \vspace*{-2\baselineskip}
 \includegraphics[width=\textwidth]{photonen-xfel}%
 \Put(-10,10){\includegraphics[width=0.07\textwidth]{logos/desy}}%
 \Put(-85,10){\includegraphics[width=0.07\textwidth]{logo-xfel}}
 \vspace*{1ex}\small
 
-electron energy: up to 17.5\,GeV \\
-photon energy: from 0.2\,keV to at least 25\,keV  \\
-photon wave length: from 4.7\,nm to at least 0.05\,nm \\
-pulse duration: less than 100\,fs \\
-peak brilliance: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
+Energie der Elektronen: bis zu 17.5\,GeV \\
+Energie der Photonen: 0.2\,keV\,--\,25\,keV  \\
+Wellenlänge der Photonen: 4.7\,nm\,--\,0.05\,nm \\
+Pulsdauer: <100\,fs \\
+maximale Brillianz: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
 \end{frame}
 
 
@@ -541,17 +540,17 @@ peak brilliance: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscr
 \begin{columns}[c]
 \column{0.472\textwidth}\includegraphics[width=\textwidth]{flash-aufbau}
 \column{0.472\textwidth}\begin{itemize}
-    \item sample with \textmu m structure illuminated with single X-ray laser pulse
-    \item diffraction pattern recorded with CCD sensor (at different angles by use of multilayer mirror)
+    \item probe mit \textmu m-Struktur beleuchtet mit einzelnem Röntgen-Laserpuls
+    \item Beugungsmuster aufgenommen mit CCD-Sensoren (unter veschiedenen Winkeln durch Benutzung eines Spiegelsystems)
 \end{itemize}
 \end{columns}
 \vspace*{1ex}
 \begin{columns}[c]
 \column{0.25\textwidth}\includegraphics[width=\textwidth]{flash-beugungsbild}
 \column{0.3\textwidth}\begin{itemize}
-    \item left: recorded diffraction pattern
-    \item right: reconstructed X-ray image
-    \item first demonstration of high-resolution imaging with FLASH
+    \item links: aufgenommenes Beugungsbild
+    \item rechts: rekonstruiertes Röntgenbild
+    \item erste Demonstration hochauflösender Bildgebung mit FLASH
 \end{itemize}
 \column{0.35\textwidth}\includegraphics[width=\textwidth]{flash-rekonstruiert}
 \end{columns}
@@ -560,7 +559,7 @@ peak brilliance: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscr
 
 
 \begin{frame}
-\frametitle{Biochemistry: Ribosome Structure}
+\frametitle{Biochemie: Ribosomenstruktur}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize A. Tocilj et al., The small ribosomal subunit from \textit{Thermus thermophilus} at 4.5\,\AA{} resolution: Pattern fittings and the identification of a functional site, Proc. Natl. Acad. Sci. USA 95 (1999) 25, 14252--14257}
 \vspace*{\baselineskip}
@@ -574,7 +573,7 @@ peak brilliance: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscr
     \end{minipage}
     \hfill
     \begin{minipage}[c]{0.75\textwidth}\raggedright\footnotesize
-        Nobel prize in chemistry 2009 to Ada Yonath ``for studies of the structure and function of the ribosome''
+        Nobelpreis in Chemie 2009 an Ada Yonath ``für die Studien zur Struktur und Funktion des Ribosoms''
     \end{minipage}
 \column{0.452\textwidth}~\\[-\baselineskip]
     \includegraphics[width=\textwidth]{ribosomen-messung}
@@ -584,56 +583,51 @@ peak brilliance: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscr
 
 
 \begin{frame}
-\frametitle{Nanoparticles: Catalyst Studies}
+\frametitle{Nanopartikel: Katalysator-Oberfläche}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize U. Hejral et al., Identification of a catalytically highly active surface phase for CO oxidation over PtRh nanoparticles under operando reaction conditions, Physical Review Letters 120, 126101 (2018)}
 \vspace*{\baselineskip}
 \begin{columns}
-\column{0.532\textwidth}~\\[-\baselineskip]
-    \includegraphics[width=\textwidth]{nano-methode}
-\column{0.412\textwidth}study of reactivity of CO\,$\rightarrow$\,CO\textsubscript{2} oxidation in presence of Pt--Rh alloy nanoparticle catalyst
-    \vspace*{1ex}
-    
-    result: the more edges, the higher the reactivity
-    \vspace*{1ex}
-
-    \includegraphics[width=\textwidth]{nano-3d}
+    \column{0.532\textwidth}
+        ~\\[-\baselineskip]
+        \includegraphics[width=\textwidth]{nano-methode}
+    \column{0.412\textwidth}
+        Untersuchungen zur Reaktivität der Oxidation von
+        CO\,$\rightarrow$\,CO\textsubscript{2} an Oberflächen mit Nanopartikeln
+        aus Pt-Rh-Legierung zeigt, dass die Reaktivität steigt, wenn der
+        Katalysator mehr Ecken hat.
+        \vspace*{1ex}
+        \includegraphics[width=\textwidth]{nano-3d}
 \end{columns}
 \end{frame}
 
 
 \begin{frame}
-\frametitle{Art: Hidden Paintings}
+\frametitle{Kunst: Verborgene Gemälde}
 \vspace*{-2.6\baselineskip}
 \alert{\bfseries\footnotesize J. Dik et al., Visualization of a lost painting by Vincent van Gogh using synchrotron radiation based X-ray fluorescence elemental mapping, Anal. Chem. 80 (2008) 16}
 \vspace*{0.5\baselineskip}
 \begin{columns}
-\column{0.472\textwidth}\textbf{Original: \glqq Patch of Grass\grqq\\(Vincent van Gogh)} \\[1ex]
+\column{0.472\textwidth}\textbf{Original: \glqq Grasgrond\grqq\\(Vincent van Gogh)} \\[1ex]
     \includegraphics[width=\textwidth]{vangogh-original}
-\column{0.472\textwidth}\textbf{Reconstruction of hidden picture from fluorescence measurements} \\[1ex]
+\column{0.472\textwidth}\textbf{Rekonstruktion des übermalten Bildes aus Floureszenz-Messung} \\[1ex]
     \includegraphics[width=\textwidth]{vangogh-rekonstruktion}
 \end{columns}
 \vspace*{-8pt}
 \end{frame}
 
 
-\usebackgroundtemplate{\includegraphics[width=\paperwidth]{desygelaende}}
-\begin{frame}[plain]
-\vspace*{0.72\paperheight}
-\setlength\fboxsep{0.044\paperwidth}
-\makebox[\dimexpr3.5cm+\fboxsep][r]{\colorbox{white}{\parbox{\dimexpr3.5cm}{%
-    \emph{\bfseries Have fun at the tour!} \\[1ex]
-    \textbullet~~ Take fotos! \\
-    \textbullet~~ Ask questions!
-}}}%
-\Put(-34,60){\includegraphics[width=1.5cm]{logo-herab}}%
-\Put(38,100){\setlength\fboxsep{0pt}\fbox{\includegraphics[width=3cm]{logo-petra3}}}%
-%\Put(8,38){\includegraphics[width=0.5cm]{locator}}% SR 3,4,5
-%\Put(-1,25){\includegraphics[width=0.5cm]{locator}}% SR 1,1b
-%\Put(22,14){\includegraphics[width=0.5cm]{locator}}% Hörsaal, Geb. 5
-%\Put(58,30){\includegraphics[height=0.5cm]{locator2}}% 3/BAH1
+%%%
+%%%   END OF PRESENTATION
+%%%
+
+\begin{frame}
+\frametitle{Viel Spaß bei der Führung!}
+\textbullet~~ Fotografieren erlaubt! \\
+\textbullet~~ Fragen stellen ausdrücklich erwünscht!
 \end{frame}
 
+\begin{frame}\frametitle{Outline}\tableofcontents\end{frame}
 
 
 \end{document}
