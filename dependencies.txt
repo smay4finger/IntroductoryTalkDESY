@@ -1,0 +1,5 @@
+vortrag_en.tex requires the package NewDesyBeamer.
+http://github.com/knollejo/NewDesyBeamer
+
+vortrag_en.tex requires the images from the folder "bilder",
+stored under: Students lectures/German/Knolle, Joscha

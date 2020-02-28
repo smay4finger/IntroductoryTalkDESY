@@ -1,0 +1,30 @@
+$ENV{'TEXINPUTS'} = './/:';
+
+$cleanup_includes_cusdep_generated = 1;
+$cleanup_includes_generated = 1;
+
+$pdf_previewer = 'start xreader %O %S';
+
+$clean_full_ext="snm nav";
+
+$pdf_mode=1;
+$dvi_mode=0;
+$postscript_mode=0;
+
+$bibtex_use=0;
+
+$silent=1;
+
+
+$out_dir="output";
+
+
+add_cus_dep('svg', 'pdf', 0, 'svg2pdf');
+sub svg2pdf {
+    system("inkscape -f \"$_[0].svg\" -A \"$_[0].pdf\"");
+}
+
+add_cus_dep('svg', 'png', 0, 'svg2png');
+sub svg2png {
+    system("inkscape -f \"$_[0].svg\" -e \"$_[0].png\"");
+}
