@@ -12,6 +12,7 @@
 *.fdb_latexmk
 *.fls
 *.aux
+*.swp
 
 *-converted-to.pdf
 *-converted-to.png
