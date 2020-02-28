@@ -9,6 +9,7 @@
 \usepackage{microtype}
 \usepackage{tikz}
 \usetikzlibrary{positioning,calc}
+\usepackage{natbib}
 \usepackage[absolute,overlay]{textpos}
 
 %%% enable grid for finding text positions
@@ -627,7 +628,13 @@ maximale Brillianz: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuper
 \textbullet~~ Fragen stellen ausdrücklich erwünscht!
 \end{frame}
 
-\begin{frame}\frametitle{Outline}\tableofcontents\end{frame}
+\begin{frame}{Inhalt}
+\tableofcontents
+\end{frame}
 
+\begin{frame}[allowframebreaks]{Referenzen}
+\tiny{\bibliographystyle{abbrv}}
+\bibliography{images}
+\end{frame}
 
 \end{document}

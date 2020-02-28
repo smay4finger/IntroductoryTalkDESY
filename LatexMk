@@ -10,8 +10,7 @@ $clean_full_ext="snm nav";
 $pdf_mode=1;
 $dvi_mode=0;
 $postscript_mode=0;
-
-$bibtex_use=0;
+$bibtex_use=2;
 
 $silent=1;
 
