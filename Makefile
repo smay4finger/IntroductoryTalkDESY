@@ -18,4 +18,4 @@ continuous-de:
 continuous-en:
 	latexmk $(LATEXMK_ARGS) -verbose -pvc vortrag_en
 
-.PHONY: FORCE_MAKE all clean view-de view-en
+.PHONY: FORCE_MAKE all clean continuous-de continuous-en
