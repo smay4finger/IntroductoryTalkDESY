@@ -13,7 +13,10 @@ $postscript_mode=0;
 $bibtex_use=2;
 
 $silent=1;
+$recorder = 1;
 
+$pdflatex = 'pdflatex -interaction=nonstopmode -shell-escape';
+$latex = 'latex -interaction=nonstopmode -shell-escape';
 
 $out_dir="output";
 
