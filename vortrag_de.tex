@@ -23,6 +23,7 @@
 \def\Put(#1,#2)#3{\leavevmode\makebox(0,0){\put(#1,#2){#3}}}
 \unitlength=0.01\paperwidth
 
+
 \begin{document}
 
 \maketitle
@@ -214,59 +215,89 @@
 \end{columns}
 \end{frame}
 
+%
+% Beschleuniger am DESY
+%
 
 \begin{frame}
-\frametitle{Beschleuniger: \only<1>{DESY}\only<2>{DORIS}\only<3>{PETRA}\only<4>{HERA}\only<5>{FLASH}\only<6>{European XFEL}}
+\frametitle{Beschleuniger: DESY2}
 \vspace*{-2\baselineskip}
-\begin{tikzpicture}[every node/.style={anchor=south west,inner sep=0pt}, x=0mm, y=0mm]   
-     \node (photo) at (0,0){\includegraphics[width=\textwidth]{2019-07-25_RS-05261.jpg}};
-
-     \node (overlay) at (0, 0){\includegraphics[width=\textwidth]{images/2019-07-25_RS-05261_overlay_petra.pdf}};
-\end{tikzpicture}
-\end{frame}
-
-
-\begin{frame}
-\frametitle{Beschleuniger: \only<1>{DESY}\only<2>{DORIS}\only<3>{PETRA}\only<4>{HERA}\only<5>{FLASH}\only<6>{European XFEL}}
-\only<2->{\stepcounter{framenumber}}%
-\vspace*{-2\baselineskip}
-\begin{tikzpicture}
-    \node[inner sep=0pt] at (0,0) {\includegraphics[width=0.9\textwidth]{beschleuniger-desy}};
-    \only<1>{\draw [desyblue,line width=3pt] (0.57cm,-1.25cm) circle (0.5cm);}
-    \only<2>{\draw [desyblue,line width=3pt,rotate=-15,rounded corners=7pt] (0.45cm,0.35cm) rectangle (1.65cm,0.85cm);}
-    \only<3>{\draw [desyblue,line width=3pt] (-0.8cm,-0.2cm) circle (3.5cm);}
-    \only<4>{\draw [desyblue,line width=3pt] (-2.9cm,3.6cm) to [bend right=5] (-0.7cm,-1.4cm) to [bend right=13] (1.8cm,-3.6cm);}
-    \only<5>{\draw [desyblue,line width=3pt] (0.55cm,1.35cm) -- (1.1cm,3cm) ;}
-    \only<6>{\draw [desyblue,line width=3pt] (-2.3cm,-0.15cm) -- (-5.2cm,0.95cm) ;}
-    \node [fill=white] at (0.4\textwidth,-1cm) {\parbox{0.28\textwidth}{\raggedright%
-        \only<1>{\textbf{D}eutsches \textbf{E}lektronen-\textbf{SY}nchrotron \\[1ex]
-        since 1964 \\
-        circumference: 317\,m \\
-        electrons: 7.4\,GeV}%
-        \only<2>{\textbf{DO}ppel-\textbf{R}ing-\textbf{S}peicher \\[1ex]
-        from 1974 to 2013 \\
-        circumference: 289\,m \\
-        electrons: 5\,GeV}%
-        \only<3>{\textbf{P}ositron-\textbf{E}lektron-\textbf{T}andem-\textbf{R}ing-\textbf{A}nlage \\[1ex]
-        since 1978 \\
-        circumference: 2.3\,km \\
-        electrons: 6\,GeV (before:~19\,GeV)}%
-        \only<4>{\textbf{H}adron-\textbf{E}lektron-\textbf{R}ing-\textbf{A}nlage \\[1ex]
-        from 1992 to 2007 \\
-        circumference: 6.3\,km \\
-        electrons: 27.5\,GeV \\
-        protons: 920\,GeV}%
-        \only<5>{\textbf{F}reie-Elektronen-\textbf{LAS}er in \textbf{H}amburg \\[1ex]
-        since 2005 \\
-        length: 315\,m \\
-        electrons: 1.2\,GeV}%
-        \only<6>{\textbf{X}-Ray \textbf{F}reie-\textbf{E}lektronen-\textbf{L}aser \\[1ex]
-        since 2017 \\
-        length: 3.4\,km \\
-        electrons: 17.5\,GeV}%
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \only<1>{\node (photo) at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-desy2.pdf}};}
+    \only<2>{\node at (0, 0) {\includegraphics[width=\textwidth]{images/foto_desy_1965_resized.jpg}};}
+    \node[inner sep=3pt, rounded corners=3pt, draw, fill=white] (description) at (-0.5cm, 0.5cm) {\parbox{0.45\textwidth}{\raggedright%
+        \textbf{D}eutsches \textbf{E}lektronen-\textbf{Sy}nchrotron \\[1ex]
+        Erstinbetriebnahme: 1964 \\
+        Umfang: 317\,m \\
+        Energie: 7,4\,GeV
     }};
 \end{tikzpicture}
 \end{frame}
+
+\begin{frame}
+\frametitle{Beschleuniger: PETRA}
+\vspace*{-2\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \only<1>{\node at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-petra3.pdf}};}
+    \only<2>{\node at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-petra3-verbund.pdf}};}
+    \node[inner sep=3pt, rounded corners=3pt, draw, fill=white] (description) at (-0.5cm, 0.5cm) {%
+        \parbox{0.55\textwidth}{\raggedright%
+            \textbf{P}ositronen-\textbf{E}lektronen-\textbf{T}andem-\textbf{R}inganlage \\[1ex]
+            Erstinbetriebnahme: 1978 \\
+            Umfang: 2304\,m \\
+            Energie: 19\,GeV (heute 6\,GeV)
+        }};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beschleuniger: HERA}
+\vspace*{-2\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \only<1>{\node (photo) at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-hera.pdf}};}
+    \only<2>{\node (photo) at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-hera-verbund.pdf}};}
+    \node[inner sep=3pt, rounded corners=3pt, draw, fill=white] (description) at (-0.5cm, 0.5cm) {%
+        \parbox{0.50\textwidth}{\raggedright%
+            \textbf{H}adronen-\textbf{E}lektronen-\textbf{R}ing-\textbf{A}nlage \\[1ex]
+            Erstinbetriebnahme: 1992 \\
+            Umfang: 6336\,m \\
+            Energie: 27,5\,GeV ($\mathrm{e^-}$/$\mathrm{e^+}$), 980\,GeV ($\mathrm{p^+}$) \\
+        }};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beschleuniger: FLASH}
+\vspace*{-2\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \node (photo) at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-flash.pdf}};
+    \node[inner sep=3pt, rounded corners=3pt, draw, fill=white] (description) at (-0.5cm, 0.5cm) {%
+        \parbox{0.50\textwidth}{\raggedright%
+            \textbf{F}reie-Elektronen-\textbf{LAS}er in \textbf{H}amburg \\[1ex]
+            Erstinbetriebnahme: 2005 \\
+            Länge: 315\,m \\
+            Energie: 1,2\,GeV
+        }};
+\end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+\frametitle{Beschleuniger: XFEL}
+\vspace*{-2\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \node (photo) at (0,0) {\includegraphics[width=\textwidth]{images/beschleuniger-uebersicht-overlay-xfel.pdf}};
+    \only<2>{\node[draw=white, very thick] at (-3mm, 3.6cm) {\includegraphics[width=0.95\textwidth]{images/photonen-xfel.jpg}};}
+    \node[inner sep=3pt, rounded corners=3pt, draw, fill=white] (description) at (-0.5cm, 0.5cm) {%
+        \parbox{0.50\textwidth}{\raggedright%
+            \textbf{X}-Ray \textbf{F}reie-\textbf{E}lektronen-\textbf{L}aser \\[1ex]
+            Erstinbetriebnahme: 2017 \\
+            Länge: 3,4\,km \\
+            Energie: 17,5\,GeV
+        }};
+\end{tikzpicture}
+\end{frame}
+
+
 
 \subsection{Teilchenphysik}
 
@@ -282,7 +313,6 @@
 \end{tikzpicture}
 \vspace*{-11pt}
 \end{frame}
-
 
 \begin{frame}
 \frametitle{Was ist Teilchenphysik?}
@@ -303,8 +333,117 @@
     \makebox[\textwidth][r]{\includegraphics[width=2cm]{teilchenphysik-baryon}} \\[0.5cm]
     \makebox[\textwidth][r]{\includegraphics[width=1.8cm]{teilchenphysik-meson}}
 \end{columns}
-
 \vspace*{-5pt}
+\end{frame}
+
+\begin{frame}
+\frametitle{Standardmodell der Teilchenphysik}
+\vspace*{-2.0\baselineskip}
+\scalebox{0.65}{
+    \begin{minipage}{17cm}
+        \begin{math}
+            -\frac{1}{2}\partial_{\nu}g^{a}_{\mu}\partial_{\nu}g^{a}_{\mu}
+            -g_{s}f^{abc}\partial_{\mu}g^{a}_{\nu}g^{b}_{\mu}g^{c}_{\nu}
+            -\frac{1}{4}g^{2}_{s}f^{abc}f^{ade}g^{b}_{\mu}g^{c}_{\nu}g^{d}_{\mu}g^{e}_{\nu}
+            +\frac{1}{2}ig^{2}_{s}(\bar{q}^{\sigma}_{i}\gamma^{\mu}q^{\sigma}_{j})g^{a}_{\mu}
+            +\bar{G}^{a}\partial^{2}G^{a}+g_{s}f^{abc}\partial_{\mu}\bar{G}^{a}G^{b}g^{c}_{\mu}
+            -\partial_{\nu}W^{+}_{\mu}\partial_{\nu}W^{-}_{\mu}-M^{2}W^{+}_{\mu}W^{-}_{\mu}
+            -\frac{1}{2}\partial_{\nu}Z^{0}_{\mu}\partial_{\nu}Z^{0}_{\mu}-\frac{1}{2c^{2}_{w}}
+            M^{2}Z^{0}_{\mu}Z^{0}_{\mu}
+            -\frac{1}{2}\partial_{\mu}A_{\nu}\partial_{\mu}A_{\nu}
+            -\frac{1}{2}\partial_{\mu}H\partial_{\mu}H-\frac{1}{2}m^{2}_{h}H^{2}
+            -\partial_{\mu}\phi^{+}\partial_{\mu}\phi^{-}-M^{2}\phi^{+}\phi^{-}
+            -\frac{1}{2}\partial_{\mu}\phi^{0}\partial_{\mu}\phi^{0}-\frac{1}{2c^{2}_{w}}M\phi^{0}\phi^{0}
+            -\beta_{h}[\frac{2M^{2}}{g^{2}}+\frac{2M}{g}H+\frac{1}{2}(H^{2}+\phi^{0}\phi^{0}+2\phi^{+}\phi^{-%%@
+            })]+\frac{2M^{4}}{g^{2}}\alpha_{h}
+            -igc_{w}[\partial_{\nu}Z^{0}_{\mu}(W^{+}_{\mu}W^{-}_{\nu}-W^{+}_{\nu}W^{-}_{\mu})
+            -Z^{0}_{\nu}(W^{+}_{\mu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\mu}\partial_{\nu}W^{+}_{\mu})
+            +Z^{0}_{\mu}(W^{+}_{\nu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\nu}\partial_{\nu}W^{+}_{\mu})]
+            -igs_{w}[\partial_{\nu}A_{\mu}(W^{+}_{\mu}W^{-}_{\nu}-W^{+}_{\nu}W^{-}_{\mu})
+            -A_{\nu}(W^{+}_{\mu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\mu}\partial_{\nu}W^{+}_{\mu})
+            +A_{\mu}(W^{+}_{\nu}\partial_{\nu}W^{-}_{\mu}-W^{-}_{\nu}\partial_{\nu}W^{+}_{\mu})]
+            -\frac{1}{2}g^{2}W^{+}_{\mu}W^{-}_{\mu}W^{+}_{\nu}W^{-}_{\nu}+\frac{1}{2}g^{2}
+            W^{+}_{\mu}W^{-}_{\nu}W^{+}_{\mu}W^{-}_{\nu}
+            +g^2c^{2}_{w}(Z^{0}_{\mu}W^{+}_{\mu}Z^{0}_{\nu}W^{-}_{\nu}-Z^{0}_{\mu}Z^{0}_{\mu}W^{+}_{\nu}
+            W^{-}_{\nu})
+            +g^2s^{2}_{w}(A_{\mu}W^{+}_{\mu}A_{\nu}W^{-}_{\nu}-A_{\mu}A_{\mu}W^{+}_{\nu}
+            W^{-}_{\nu})
+            +g^{2}s_{w}c_{w}[A_{\mu}Z^{0}_{\nu}(W^{+}_{\mu}W^{-}_{\nu}-W^{+}_{\nu}W^{-}_{\mu})-%%@
+            2A_{\mu}Z^{0}_{\mu}W^{+}_{\nu}W^{-}_{\nu}]
+            -g\alpha[H^3+H\phi^{0}\phi^{0}+2H\phi^{+}\phi^{-}]
+            -\frac{1}{8}g^{2}\alpha_{h}[H^4+(\phi^{0})^{4}+4(\phi^{+}\phi^{-})^{2}+4(\phi^{0})^{2}
+            \phi^{+}\phi^{-}+4H^{2}\phi^{+}\phi^{-}+2(\phi^{0})^{2}H^{2}]
+            -gMW^{+}_{\mu}W^{-}_{\mu}H-\frac{1}{2}g\frac{M}{c^{2}_{w}}Z^{0}_{\mu}Z^{0}_{\mu}H
+            -\frac{1}{2}ig[W^{+}_{\mu}(\phi^{0}\partial_{\mu}\phi^{-}-\phi^{-}\partial_{\mu}\phi^{0})
+            -W^{-}_{\mu}(\phi^{0}\partial_{\mu}\phi^{+}-\phi^{+}\partial_{\mu}\phi^{0})]
+            +\frac{1}{2}g[W^{+}_{\mu}(H\partial_{\mu}\phi^{-}-\phi^{-}\partial_{\mu}H)
+            -W^{-}_{\mu}(H\partial_{\mu}\phi^{+}-\phi^{+}\partial_{\mu}H)]
+            +\frac{1}{2}g\frac{1}{c_{w}}(Z^{0}_{\mu}(H\partial_{\mu}\phi^{0}-\phi^{0}\partial_{\mu}H)
+            -ig\frac{s^{2}_{w}}{c_{w}}MZ^{0}_{\mu}(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
+            +igs_{w}MA_{\mu}(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
+            -ig\frac{1-2c^{2}_{w}}{2c_{w}}Z^{0}_{\mu}(\phi^{+}\partial_{\mu}\phi^{-}-\phi^{-%%@
+            }\partial_{\mu}\phi^{+})
+            +igs_{w}A_{\mu}(\phi^{+}\partial_{\mu}\phi^{-}-\phi^{-}\partial_{\mu}\phi^{+})
+            -\frac{1}{4}g^{2}W^{+}_{\mu}W^{-}_{\mu}[H^{2}+(\phi^{0})^{2}+2\phi^{+}\phi^{-}]
+            -\frac{1}{4}g^{2}\frac{1}{c^{2}_{w}}Z^{0}_{\mu}Z^{0}_{\mu}[H^{2}+(\phi^{0})^{2}+2(2s^{2}_{w}-%%@
+            1)^{2}\phi^{+}\phi^{-}]
+            -\frac{1}{2}g^{2}\frac{s^{2}_{w}}{c_{w}}Z^{0}_{\mu}\phi^{0}(W^{+}_{\mu}\phi^{-}+W^{-%%@
+            }_{\mu}\phi^{+})
+            -\frac{1}{2}ig^{2}\frac{s^{2}_{w}}{c_{w}}Z^{0}_{\mu}H(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
+            +\frac{1}{2}g^{2}s_{w}A_{\mu}\phi^{0}(W^{+}_{\mu}\phi^{-}+W^{-}_{\mu}\phi^{+})
+            +\frac{1}{2}ig^{2}s_{w}A_{\mu}H(W^{+}_{\mu}\phi^{-}-W^{-}_{\mu}\phi^{+})
+            -g^{2}\frac{s_{w}}{c_{w}}(2c^{2}_{w}-1)Z^{0}_{\mu}A_{\mu}\phi^{+}\phi^{-}-%%@
+            g^{1}s^{2}_{w}A_{\mu}A_{\mu}\phi^{+}\phi^{-}
+            -\bar{e}^{\lambda}(\gamma\partial+m^{\lambda}_{e})e^{\lambda}
+            -\bar{\nu}^{\lambda}\gamma\partial\nu^{\lambda}
+            -\bar{u}^{\lambda}_{j}(\gamma\partial+m^{\lambda}_{u})u^{\lambda}_{j}
+            -\bar{d}^{\lambda}_{j}(\gamma\partial+m^{\lambda}_{d})d^{\lambda}_{j}
+            +igs_{w}A_{\mu}[-(\bar{e}^{\lambda}\gamma^{\mu}
+            e^{\lambda})+\frac{2}{3}(\bar{u}^{\lambda}_{j}\gamma^{\mu} %%@
+            u^{\lambda}_{j})-\frac{1}{3}(\bar{d}^{\lambda}_{j}\gamma^{\mu} 
+            d^{\lambda}_{j})]
+            +\frac{ig}{4c_{w}}Z^{0}_{\mu}
+            [(\bar{\nu}^{\lambda}\gamma^{\mu}(1+\gamma^{5})\nu^{\lambda})+
+            (\bar{e}^{\lambda}\gamma^{\mu}(4s^{2}_{w}-1-\gamma^{5})e^{\lambda})+
+            (\bar{u}^{\lambda}_{j}\gamma^{\mu}(\frac{4}{3}s^{2}_{w}-1-\gamma^{5})u^{\lambda}_{j})+
+            (\bar{d}^{\lambda}_{j}\gamma^{\mu}(1-\frac{8}{3}s^{2}_{w}-\gamma^{5})d^{\lambda}_{j})]
+            +\frac{ig}{2\sqrt{2}}W^{+}_{\mu}[(\bar{\nu}^{\lambda}\gamma^{\mu}(1+\gamma^{5})e^{\lambda})
+            +(\bar{u}^{\lambda}_{j}\gamma^{\mu}(1+\gamma^{5})C_{\lambda\kappa}d^{\kappa}_{j})]
+            +\frac{ig}{2\sqrt{2}}W^{-}_{\mu}[(\bar{e}^{\lambda}\gamma^{\mu}(1+\gamma^{5})\nu^{\lambda})
+            +(\bar{d}^{\kappa}_{j}C^{\dagger}_{\lambda\kappa}\gamma^{\mu}(1+\gamma^{5})u^{\lambda}_{j})]
+            +\frac{ig}{2\sqrt{2}}\frac{m^{\lambda}_{e}}{M}
+            [-\phi^{+}(\bar{\nu}^{\lambda}(1-\gamma^{5})e^{\lambda})
+            +\phi^{-}(\bar{e}^{\lambda}(1+\gamma^{5})\nu^{\lambda})]
+            -\frac{g}{2}\frac{m^{\lambda}_{e}}{M}[H(\bar{e}^{\lambda}e^{\lambda})
+            +i\phi^{0}(\bar{e}^{\lambda}\gamma^{5}e^{\lambda})]
+            +\frac{ig}{2M\sqrt{2}}\phi^{+}
+            [-m^{\kappa}_{d}(\bar{u}^{\lambda}_{j}C_{\lambda\kappa}(1-\gamma^{5})d^{\kappa}_{j})
+            +m^{\lambda}_{u}(\bar{u}^{\lambda}_{j}C_{\lambda\kappa}(1+\gamma^{5})d^{\kappa}_{j}]
+            +\frac{ig}{2M\sqrt{2}}\phi^{-}
+            [m^{\lambda}_{d}(\bar{d}^{\lambda}_{j}C^{\dagger}_{\lambda\kappa}(1+\gamma^{5})u^{\kappa}_{j})
+            -m^{\kappa}_{u}(\bar{d}^{\lambda}_{j}C^{\dagger}_{\lambda\kappa}(1-\gamma^{5})u^{\kappa}_{j}]
+            -\frac{g}{2}\frac{m^{\lambda}_{u}}{M}H(\bar{u}^{\lambda}_{j}u^{\lambda}_{j})
+            -\frac{g}{2}\frac{m^{\lambda}_{d}}{M}H(\bar{d}^{\lambda}_{j}d^{\lambda}_{j})
+            +\frac{ig}{2}\frac{m^{\lambda}_{u}}{M}\phi^{0}(\bar{u}^{\lambda}_{j}\gamma^{5}u^{\lambda}_{j})
+            -\frac{ig}{2}\frac{m^{\lambda}_{d}}{M}\phi^{0}(\bar{d}^{\lambda}_{j}\gamma^{5}d^{\lambda}_{j})
+            +\bar{X}^{+}(\partial^{2}-M^{2})X^{+}+\bar{X}^{-}(\partial^{2}-M^{2})X^{-}
+            +\bar{X}^{0}(\partial^{2}-\frac{M^{2}}{c^{2}_{w}})X^{0}+\bar{Y}\partial^{2}Y
+            +igc_{w}W^{+}_{\mu}(\partial_{\mu}\bar{X}^{0}X^{-}-\partial_{\mu}\bar{X}^{+}X^{0})
+            +igs_{w}W^{+}_{\mu}(\partial_{\mu}\bar{Y}X^{-}-\partial_{\mu}\bar{X}^{+}Y)
+            +igc_{w}W^{-}_{\mu}(\partial_{\mu}\bar{X}^{-}X^{0}-\partial_{\mu}\bar{X}^{0}X^{+})
+            +igs_{w}W^{-}_{\mu}(\partial_{\mu}\bar{X}^{-}Y-\partial_{\mu}\bar{Y}X^{+})
+            +igc_{w}Z^{0}_{\mu}(\partial_{\mu}\bar{X}^{+}X^{+}-\partial_{\mu}\bar{X}^{-}X^{-})
+            +igs_{w}A_{\mu}(\partial_{\mu}\bar{X}^{+}X^{+}-\partial_{\mu}\bar{X}^{-}X^{-})
+            -\frac{1}{2}gM[\bar{X}^{+}X^{+}H+\bar{X}^{-}X^{-}H+\frac{1}{c^{2}_{w}}\bar{X}^{0}X^{0}H]
+            +\frac{1-2c^{2}_{w}}{2c_{w}}igM[\bar{X}^{+}X^{0}\phi^{+}-\bar{X}^{-}X^{0}\phi^{-}]
+            +\frac{1}{2c_{w}}igM[\bar{X}^{0}X^{-}\phi^{+}-\bar{X}^{0}X^{+}\phi^{-}]
+            +igMs_{w}[\bar{X}^{0}X^{-}\phi^{+}-\bar{X}^{0}X^{+}\phi^{-}]
+            +\frac{1}{2}igM[\bar{X}^{+}X^{+}\phi^{0}-\bar{X}^{-}X^{-}\phi^{0}]
+        \end{math}
+        \\[2ex]
+        Extrahiert von Thomas\,D.\,Gutierrez aus Diagrammatica von Martinus Veltman irgendwann 1999. \cite{stml} \\
+    \end{minipage}
+}
 \end{frame}
 
 
@@ -495,15 +634,16 @@ Bei HERA konnte die Zusammensetzung des Protons so genau ver- messen werden, das
 
 \begin{frame}
 \frametitle{PETRA III \color{desyorange}\large -- brillianteste Lichtquelle ihrer Art}
-\vspace*{-2\baselineskip}
-\begin{tikzpicture}
-    \node [inner sep=0pt] {\includegraphics[width=0.78\textwidth]{photonen-petra3}};
-    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (3cm,-3cm) {\parbox{7.6cm}{\raggedright\small%
-        Energie der Elektronen: 6\,GeV \\
-        Energie der Photonen: 150\,eV\,--\,200\,keV \\
-        Wellenlänge der Photonen: 8\,nm\,--\,0.006\,nm \\
-        maximale Brillianz: 10\textsuperscript{21}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
-    }};
+\vspace*{-2.5\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \node at (0,0) {\includegraphics[width=\textwidth]{photonen-petra3}};
+    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (-3mm,3mm) {
+        \scalebox{0.5}{\parbox{9cm}{%
+            Energie der Elektronen: 6\,GeV \\
+            Energie der Photonen: 150\,eV\,--\,200\,keV \\
+            Wellenlänge der Photonen: 8\,nm\,--\,0,006\,nm \\
+            maximale Brillianz: $1\times10^{\tiny 21}\,Photons\,/\,(s\,mm^2\,mrad^2\,0.1\,\%\,BW)$
+    }}};
 \end{tikzpicture}
 \vspace*{-4pt}
 \end{frame}
@@ -511,16 +651,17 @@ Bei HERA konnte die Zusammensetzung des Protons so genau ver- messen werden, das
 
 \begin{frame}
 \frametitle{FLASH \color{desyorange}\large -- weltweit erster FEL für weiches Röntgenlicht}
-\vspace*{-2\baselineskip}
-\begin{tikzpicture}
-    \node [inner sep=0pt] {\includegraphics[width=0.75\textwidth]{photonen-flash}};
-    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (3.5cm,-3.5cm) {\parbox{7.3cm}{\raggedright\small%
-        Energie der Elektronen: 0.35\,GeV\,--\,1.25\,GeV \\
-        Energie der Photonen: 14\,eV\,--\,310\,eV \\
-        Wellenlänge der Photonen: 90\,nm\,--\,4\,nm \\
-        Pulsdauer: 30\,fs\,--\,200\,fs \\
-        maximale Brillianz: 10\textsuperscript{31}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
-    }};
+\vspace*{-2.5\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \node at (0,0) {\includegraphics[width=\textwidth]{photonen-flash}};
+    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (-3mm, 3mm) {
+        \scalebox{0.5}{\parbox{9cm}{
+            Energie der Elektronen: 0,35\,GeV\,--\,1,25\,GeV \\
+            Energie der Photonen: 14\,eV\,--\,310\,eV \\
+            Wellenlänge der Photonen: 90\,nm\,--\,4\,nm \\
+            Pulsdauer: 30\,fs\,--\,200\,fs \\
+            maximale Brillianz: $1\times10^{\tiny 31}\,Photons\,/\,(s\,mm^2\,mrad^2\,0.1\,\%\,BW)$
+    }}};
 \end{tikzpicture}
 \vspace*{-22pt}
 \end{frame}
@@ -528,17 +669,19 @@ Bei HERA konnte die Zusammensetzung des Protons so genau ver- messen werden, das
 
 \begin{frame}
 \frametitle{European XFEL \color{desyorange}\large -- größter Röntgenlaser der Welt}
-\vspace*{-2\baselineskip}
-\includegraphics[width=\textwidth]{photonen-xfel}%
-\Put(-10,10){\includegraphics[width=0.07\textwidth]{logos/desy}}%
-\Put(-85,10){\includegraphics[width=0.07\textwidth]{logo-xfel}}
-\vspace*{1ex}\small
-
-Energie der Elektronen: bis zu 17.5\,GeV \\
-Energie der Photonen: 0.2\,keV\,--\,25\,keV  \\
-Wellenlänge der Photonen: 4.7\,nm\,--\,0.05\,nm \\
-Pulsdauer: <100\,fs \\
-maximale Brillianz: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuperscript{2}\,mrad\textsuperscript{2}\,0.1\,\%\,BW)
+\vspace*{-2.5\baselineskip}
+\begin{tikzpicture}[every node/.style={anchor=south east,inner sep=0pt}, x=0mm, y=0mm]   
+    \node at (0,0) {\includegraphics[width=\textwidth]{images/2018-11-22_X-ray-laser-beam_000471.jpg}};
+    \node [inner sep=3pt, rounded corners=3pt, draw, fill=white] at (-3mm, 3mm) {
+        \scalebox{0.5}{\parbox{9cm}{
+            Energie der Elektronen: bis zu 17,5\,GeV \\
+            Energie der Photonen: 0,2\,keV\,--\,25\,keV  \\
+            Wellenlänge der Photonen: 4,7\,nm\,--\,0,05\,nm \\
+            Pulsdauer: <100\,fs \\
+            maximale Brillianz: $5\times10^{\tiny 33}\,Photons\,/\,(s\,mm^2\,mrad^2\,0.1\,\%\,BW)$
+            \end{minipage}
+    }}};
+\end{tikzpicture}
 \end{frame}
 
 
@@ -635,6 +778,7 @@ maximale Brillianz: 5\,$\times$\,10\textsuperscript{33}\,ph\,/\,(s\,mm\textsuper
 \frametitle{Viel Spaß bei der Führung!}
 \textbullet~~ Fotografieren erlaubt! \\
 \textbullet~~ Fragen stellen ausdrücklich erwünscht!
+\cite{DESYMediabank:2019-07-25_RS-0531_b1.jpg}
 \end{frame}
 
 \begin{frame}{Inhalt}
