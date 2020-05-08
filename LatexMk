@@ -3,9 +3,7 @@ $ENV{'TEXINPUTS'} = './/:';
 $cleanup_includes_cusdep_generated = 1;
 $cleanup_includes_generated = 1;
 
-$pdf_previewer = 'start xreader %O %S';
-
-$clean_full_ext="snm nav";
+$pdf_previewer = 'start evince %O %S';
 
 $pdf_mode=1;
 $dvi_mode=0;
@@ -15,11 +13,8 @@ $bibtex_use=2;
 $silent=1;
 $recorder = 1;
 
-$pdflatex = 'pdflatex -interaction=nonstopmode -shell-escape';
-$latex = 'latex -interaction=nonstopmode -shell-escape';
-
-$out_dir="output";
-
+$pdflatex = 'pdflatex -file-line-error -interaction=nonstopmode --shell-escape --enable-write18';
+$latex =    'latex    -file-line-error -interaction=nonstopmode --shell-escape --enable-write18';
 
 add_cus_dep('svg', 'pdf', 0, 'svg2pdf');
 sub svg2pdf {
@@ -30,3 +25,13 @@ add_cus_dep('svg', 'png', 0, 'svg2png');
 sub svg2png {
     system("inkscape -f \"$_[0].svg\" -e \"$_[0].png\"");
 }
+
+add_cus_dep('glo', 'gls', 0, 'glo2gls');
+sub glo2gls {
+    system("makeindex -s '$_[0]'.ist -t '$_[0]'.glg -o '$_[0]'.gls '$_[0]'.glo");
+}
+push @generated_exts, 'glo', 'gls', 'glg';
+push @generated_exts, 'acn', 'acr', 'alg';
+$clean_ext .= ' %R.ist %R.xdy';
+
+# vim:ft=perl
