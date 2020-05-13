@@ -3,6 +3,8 @@
 *.idx
 *.log
 *.bbl
+*.bcf
+*.run.xml
 *.blg
 *.log
 *.cut
